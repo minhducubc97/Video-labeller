@@ -90,9 +90,9 @@ while True:
 	if frame is None:
 		break
 
-	cv2.imwrite('frames/' + videoName + "-" + str(counter).zfill(3) + '.png', frame)
 	# resize the frame (so we can process it faster)
 	frame = imutils.resize(frame, width=widthVal, height=heightVal)
+	cv2.imwrite('frames/' + videoName + "-" + str(counter).zfill(3) + '.png', frame)
 
 	# get the keyboard input
 	key = cv2.waitKey(1) & 0xFF
