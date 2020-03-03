@@ -63,20 +63,15 @@ def clearFolder(path):
 
 # Initialize a dictionary that maps strings to their corresponding OpenCV object tracker implementations
 TRACKER_TYPE = {
-    # NOTE: These are 8 types of tracker, by default csrt is chosen. These functions sometimes go missing in the official distribution, so in these cases, to solve the problem, install opencv-contrib: pip install opencv-contrib-python
-    # RECOMMENDED: A bit slow but very accurate
+    # NOTE: These functions sometimes go missing in the official distribution, so in these cases, to solve the problem, install opencv-contrib: pip install opencv-contrib-python
     "csrt": cv2.TrackerCSRT_create,
-    # RECOMMENDED: Averagely fast and averagely accurate
     "kcf": cv2.TrackerKCF_create,
-    # Slow and not very accurate (and the oldest)
     "boosting": cv2.TrackerBoosting_create,
-    "mil": cv2.TrackerMIL_create,						# Averagely accurate, but handle errors badly
-    "tld": cv2.TrackerTLD_create,						# NOT RECOMMENDED: Prone to false-positive
-    # Doesn't work well when there is a sudden change in motion
+    "mil": cv2.TrackerMIL_create,
+    "tld": cv2.TrackerTLD_create,
     "medianflow": cv2.TrackerMedianFlow_create,
-    # RECOMMENDED: Extremely fast but not very accurate -> good when user needs for speed
     "mosse": cv2.TrackerMOSSE_create,
-    "goturn": cv2.TrackerGOTURN_create					# Complicated
+    "goturn": cv2.TrackerGOTURN_create
 }
 
 widthVal = 720
